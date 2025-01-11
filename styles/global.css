@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Define theme variables */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --navbar-bg: #f8f9fa;
+  --navbar-text: #000000;
+  --navbar-border: #eaeaea;
+  --link-hover: #3b82f6;
+}
+
+@media () {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #000000;
+    --navbar-bg: #1a1a1a;
+    --navbar-text: #ffffff;
+    --navbar-border: #333333;
+    --link-hover: #2563eb;
+  }
+}
+
+/* Apply base styles */
+body {
+  @apply text-base text-[var(--foreground)] bg-[var(--background)] font-sans;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* Navbar styles */
+.navbar {
+  @apply flex items-center justify-between px-6 py-4;
+  background-color: var(--navbar-bg);
+  border-bottom: 1px solid var(--navbar-border);
+  color: var(--navbar-text);
+}
+
+.navbar a {
+  @apply text-sm font-medium hover:underline;
+  color: var(--navbar-text);
+}
+
+.navbar a:hover {
+  color: var(--link-hover);
+}
+
+.main-content {
+  @apply px-6 py-4;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+body {
+  @apply text-base text-[var(--foreground)] bg-[var(--background)] font-sans;
+}
