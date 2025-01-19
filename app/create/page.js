@@ -7,14 +7,14 @@ export default function CreateBookmark() {
   const { data: session } = useSession();
   const [title, setTitle] = useState("");
   const [url, setUrl] = useState("");
-  const [category, setCategory] = useState("");  // Ensure category is also part of state
+  const [category, setCategory] = useState("");  
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validation: Ensure that title, URL, and category are provided
+   
     if (!title || !url || !category) {
       setError("Title, URL, and category are required.");
       return;
@@ -27,34 +27,33 @@ export default function CreateBookmark() {
     }
 
     try {
-      // Make the POST request to create a new bookmark
+      
       const response = await fetch("https://bookmarkmanager-dq8p.onrender.com/api/bookmarks/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${session.accessToken}`,  // Include the token
+          "Authorization": `Bearer ${session.accessToken}`,  
         },
-        body: JSON.stringify({ title, url, category }),  // Send all fields
+        body: JSON.stringify({ title, url, category }),  
       });
 
       if (!response.ok) {
         throw new Error("Failed to create bookmark.");
       }
 
-      // Clear the input fields on success
+      
       setSuccess(true);
       setError(null);
       setTitle("");
       setUrl("");
-      setCategory("");  // Reset the category field
+      setCategory("");  
 
     } catch (err) {
-      setError(err.message);  // Handle errors
+      setError(err.message);  
       setSuccess(false);
     }
   };
 
-  // Show login message if the user is not logged in
   if (!session) {
     return <h1>Please sign in to add a bookmark</h1>;
   }
@@ -72,7 +71,7 @@ export default function CreateBookmark() {
           <input
             type="text"
             value={title}
-            onChange={(e) => setTitle(e.target.value)}  // Handle title input change
+            onChange={(e) => setTitle(e.target.value)}  
             required
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
@@ -83,7 +82,7 @@ export default function CreateBookmark() {
           <input
             type="url"
             value={url}
-            onChange={(e) => setUrl(e.target.value)}  // Handle URL input change
+            onChange={(e) => setUrl(e.target.value)}  
             required
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
@@ -94,7 +93,7 @@ export default function CreateBookmark() {
           <input
             type="text"
             value={category}
-            onChange={(e) => setCategory(e.target.value)}  // Handle category input change
+            onChange={(e) => setCategory(e.target.value)}  
             required
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />

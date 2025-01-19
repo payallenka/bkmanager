@@ -50,7 +50,7 @@ export default function Home() {
       </p>
       <div className="flex space-x-4">
         <button
-          onClick={handleRedirect}  // Use the handleRedirect function for the button
+          onClick={handleRedirect}  
           className="px-6 py-2 bg-green-500 text-white font-semibold rounded-lg shadow hover:bg-green-600 transition-all"
         >
           View Bookmarks

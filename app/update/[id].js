@@ -9,11 +9,11 @@ export default function UpdateBookmarkPage() {
   const [bookmark, setBookmark] = useState({ title: '', url: '', category: '' });
   const [error, setError] = useState(null);
   const router = useRouter();
-  const { id } = router.query;  // Access the bookmark ID from the URL
+  const { id } = router.query; 
 
   useEffect(() => {
     if (session && id) {
-      // Fetch the existing bookmark data to populate the form
+      
       fetch(`https://bookmarkmanager-dq8p.onrender.com/api/auth/bookmark/route/${id}`, {
         method: 'GET',
         headers: {
@@ -31,7 +31,7 @@ export default function UpdateBookmarkPage() {
 
     try {
       const response = await fetch(
-        `http://127.0.0.1:8000/api/auth/bookmark/update/${id}`,
+        `https://bookmarkmanager-dq8p.onrender.com/api/auth/bookmark/update/${id}`,
         {
           method: 'PUT',
           headers: {
@@ -46,7 +46,7 @@ export default function UpdateBookmarkPage() {
         throw new Error('Failed to update bookmark');
       }
 
-      router.push('/bookmarks');  // Redirect to the bookmarks page after update
+      router.push('/bookmarks');  
     } catch (err) {
       setError(err.message);
     }

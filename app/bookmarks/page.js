@@ -14,7 +14,6 @@ export default function BookmarksPage() {
   const [category, setCategory] = useState("");  // State for the updated category
 
   useEffect(() => {
-    // If session doesn't exist, no need to fetch bookmarks
     if (!session) return;
 
     // Fetch bookmarks for the user
@@ -39,9 +38,8 @@ export default function BookmarksPage() {
     };
 
     fetchBookmarks();
-  }, [session]);  // This effect runs every time the session changes
+  }, [session]);  
 
-  // If the user is not logged in, show the login prompt
   if (!session) {
     return (
       <div className="flex flex-col items-center justify-center h-screen bg-[var(--background)] text-[var(--foreground)]">
@@ -81,13 +79,13 @@ export default function BookmarksPage() {
   // Function to handle updating a bookmark
   const handleEdit = (bookmark) => {
     setEditBookmark(bookmark);  // Set the bookmark to be edited
-    setTitle(bookmark.title);    // Pre-fill the form fields with the current data
+    setTitle(bookmark.title);    
     setUrl(bookmark.url);
-    setCategory(bookmark.category || ""); // Set category if exists
+    setCategory(bookmark.category || ""); 
   };
 
   const handleUpdate = async (e) => {
-    e.preventDefault(); // Prevent form submission from reloading the page
+    e.preventDefault(); 
 
     if (!title || !url) {
       setError("Title and URL are required.");
