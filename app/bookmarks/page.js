@@ -20,7 +20,7 @@ export default function BookmarksPage() {
     // Fetch bookmarks for the user
     const fetchBookmarks = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:8000/api/bookmarks/', {
+        const response = await fetch('https://bookmarkmanager-dq8p.onrender.com/api/bookmarks/', {
           method: 'GET',
           headers: {
             Authorization: `Bearer ${session.accessToken}`,  // Include the Bearer token
@@ -59,7 +59,7 @@ export default function BookmarksPage() {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this bookmark?')) {
       try {
-        const response = await fetch(`http://127.0.0.1:8000/api/bookmarks/${id}/`, {
+        const response = await fetch(`https://bookmarkmanager-dq8p.onrender.com/api/bookmarks/${id}/`, {
           method: 'DELETE',
           headers: {
             Authorization: `Bearer ${session.accessToken}`,
@@ -95,7 +95,7 @@ export default function BookmarksPage() {
     }
 
     try {
-      const response = await fetch(`http://127.0.0.1:8000/api/bookmarks/${editBookmark.id}/`, {
+      const response = await fetch(`https://bookmarkmanager-dq8p.onrender.com/api/bookmarks/${editBookmark.id}/`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

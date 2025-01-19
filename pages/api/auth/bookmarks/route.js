@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import axios from "axios";
 
 export async function GET(req) {
-    const res = await axios.get("http://127.0.0.1:8000/api/bookmarks/", {
+    const res = await axios.get("https://bookmarkmanager-dq8p.onrender.com/api/bookmarks/", {
         headers: {
             Authorization: `Bearer ${req.cookies.get("next-auth.session-token")}`,
         },

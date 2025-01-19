@@ -1,19 +1,18 @@
 'use client';
 
 import { useSession, signIn, signOut } from 'next-auth/react';
-import { useRouter } from 'next/navigation'; // Update: useRouter from next/navigation for app directory.
+import { useRouter } from 'next/navigation'; 
 
 export default function Home() {
   const { data: session } = useSession();
-  const router = useRouter();  // Initialize the useRouter hook
+  const router = useRouter();  
 
   const handleRedirect = () => {
-    router.push('/bookmarks');  // Redirect to the /bookmarks page
+    router.push('/bookmarks');  
   };
 
   const handleSignUp = () => {
-    // Redirect to the signup page
-    router.push('/signup');  // Assuming you have a signup page at /auth/signup
+    router.push('/signup');  
   };
 
   if (!session) {

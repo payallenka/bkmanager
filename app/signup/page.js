@@ -18,7 +18,7 @@ export default function SignUpPage() {
         password: 'payallenka@123',
       };
 
-      const response = await fetch('http://127.0.0.1:8000/api/token/', {
+      const response = await fetch('https://bookmarkmanager-dq8p.onrender.com/api/token/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ export default function SignUpPage() {
         password,
       };
 
-      const response = await fetch('http://127.0.0.1:8000/api/signup/', {
+      const response = await fetch('https://bookmarkmanager-dq8p.onrender.com/api/signup/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -28,7 +28,7 @@ export default function CreateBookmark() {
 
     try {
       // Make the POST request to create a new bookmark
-      const response = await fetch("http://127.0.0.1:8000/api/bookmarks/", {
+      const response = await fetch("https://bookmarkmanager-dq8p.onrender.com/api/bookmarks/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

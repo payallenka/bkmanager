@@ -14,7 +14,7 @@ export default function UpdateBookmarkPage() {
   useEffect(() => {
     if (session && id) {
       // Fetch the existing bookmark data to populate the form
-      fetch(`http://127.0.0.1:8000/api/auth/bookmark/route/${id}`, {
+      fetch(`https://bookmarkmanager-dq8p.onrender.com/api/auth/bookmark/route/${id}`, {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${session?.accessToken}`,
